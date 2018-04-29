@@ -68,8 +68,6 @@
     "es5-shim": "^4.5.9",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
-    "kubra-lib-common-js": "*",
-    "kubra-lib-ux-components": "*",
     "normalizr": "*",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -84,12 +82,12 @@
   },
   "scripts": {
     "start": "NODE_PATH=src/ node scripts/start.js",
-    "start-local-ux": "./start-with-ux-lib.sh",
     "lint": "eslint src/",
     "start-windows": "cmd /V /C \"set NODE_PATH=src/ && node scripts/start.js\"",
     "build": "NODE_PATH=src/ node scripts/build.js",
     "travis": "npm run lint",
-    "test": "NODE_PATH=src/ node scripts/test.js --env=jsdom"
+    "test": "NODE_PATH=src/ node scripts/test.js --env=jsdom",
+    "build:symlinked": "cross-env NODE_PATH=./node_modules browserify src/index.js > dist/build.js"
   },
   "jest": {
     "collectCoverageFrom": [

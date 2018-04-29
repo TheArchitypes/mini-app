@@ -1,19 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './sass/App.scss';
+import PropTypes from 'prop-types';
+import DashboardContainer from 'modules/Dashboard/DashboardContainer';
+import bg from './assets/images/bg.jpg';
+import './sass/index.scss';
 
-function App() {
+function App({ history }) {
   return (
     <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
-      </div>
-      <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <span className="bg-image">
+        <img src={bg} alt="bg" />
+      </span>
+      <DashboardContainer history={history}/>
     </div>
   );
+}
+
+const { shape } = PropTypes;
+App.defaultProps = {
+  history: shape({}).isRequired,
 }
 
 export default App;

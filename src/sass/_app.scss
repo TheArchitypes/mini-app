@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  .bg-image {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  .dashboard {
+    position: absolute;
+    margin: 100% 2rem 25%;
+    background-color: #fff;
+    width: 100%;
+    & .dashboard-content {
+      width: 100%;
+      padding: 1.5rem 1rem;
+    }
+  }
 }
 
 .App-logo {
@@ -16,6 +32,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+.pad-y {
+  padding-bottom: 1rem;
 }
 
 @keyframes App-logo-spin {
