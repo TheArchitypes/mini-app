@@ -1,4 +1,4 @@
-const parentRoute = 'mini-app';
+const parentRoute = '/mini-app';
 
 export default {
   MiniAppDashboard: {
@@ -8,7 +8,12 @@ export default {
   },
   MiniAppForm: {
     name: 'MiniAppForm',
-    fullRoute: '${parentRoute}/form/:type/:page',
-    reactRouterRoute: '${parentRoute}/form/:type/:page',
+    fullRoute: `${parentRoute}/form/:type/:page`,
+    reactRouterRoute: `${parentRoute}/form/:type/:page`,
   },
+  MissionStatement: {
+    name: 'MissionStatement',
+    fullRoute: `${parentRoute}/mission-statement`,
+    reactRouterRoute: `${parentRoute}/mission-statement`,
+  }
 }

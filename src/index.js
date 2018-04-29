@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers';
@@ -30,7 +31,9 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>{Routes}</ConnectedRouter>
+    <Router history={history}>
+      {Routes}
+    </Router>
   </Provider>,
   document.getElementById('root'),
 );
