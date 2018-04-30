@@ -141,7 +141,6 @@ module.exports = {
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
-            exclude: /node_modules\/(?!(kubra-lib-ux-components|kubra-lib-react-auth)\/).*/,
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
@@ -195,7 +194,7 @@ module.exports = {
           {
             test: /\.(scss)$/,
             use: [
-              
+
               require.resolve('style-loader'),
               {
                 loader: require.resolve('css-loader'),

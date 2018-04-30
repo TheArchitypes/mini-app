@@ -150,7 +150,6 @@ module.exports = {
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
-            exclude: /node_modules\/(?!(kubra-lib-ux-components|kubra-lib-react-auth)\/).*/,
             loader: require.resolve('babel-loader'),
             options: {
               // @remove-on-eject-begin
