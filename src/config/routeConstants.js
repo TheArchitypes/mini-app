@@ -6,10 +6,10 @@ export default {
     fullRoute: `${parentRoute}/dashboard`,
     reactRouterRoute: `${parentRoute}/dashboard`,
   },
-  MiniAppForm: {
-    name: 'MiniAppForm',
-    fullRoute: `${parentRoute}/form/:type/:page`,
-    reactRouterRoute: `${parentRoute}/form/:type/:page`,
+  TraditionalMortgageForm: {
+    name: 'TraditionalMortgageForm',
+    fullRoute: `${parentRoute}/traditional-mortgage-form/:page`,
+    reactRouterRoute: `${parentRoute}/traditional-mortgage-form/:page`,
   },
   MissionStatement: {
     name: 'MissionStatement',

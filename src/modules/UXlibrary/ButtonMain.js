@@ -1,9 +1,12 @@
 import React from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
+import Icon from './Icon';
 
 export function ButtonMain(props) {
   const {onClick, className, label, icon, disabled} = props;
+  console.log('icon: ', icon);
+  console.log(_.isEmpty(icon));
   return (
     <button
       onClick={onClick}
@@ -11,28 +14,31 @@ export function ButtonMain(props) {
       disabled={disabled}
     >
       <span>
-        {icon !== '' &&
-          <span className="icon iconic" data-glyph={icon} />
+        {!_.isEmpty(icon) &&
+          <Icon icon={icon}/>
         }
-        <span className="label">{label}</span>
+        {_.isEmpty(icon) &&
+          <span className="label">{label}</span>
+        }
       </span>
     </button>
   )
 }
 
-const { func, string, bool } = PropTypes;
+const { func, string, bool, shape } = PropTypes;
 ButtonMain.propTypes = {
   onClick: func,
   className: string,
-  label: string.isRequired,
-  icon: string,
+  label: string,
+  icon: shape({}),
   disabled: bool,
 };
 
 ButtonMain.defaultProps = {
   onclick: () => {},
   className: '',
-  icon: '',
+  label: '',
+  icon: {},
   disabled: false,
 }
 

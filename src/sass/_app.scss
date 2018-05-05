@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  img {
+    width: 100%;
+  }
   .bg-image {
     width: 100%;
     position: fixed;
@@ -8,14 +11,24 @@
   }
   .dashboard {
     position: absolute;
-    margin: 100% 2rem 25%;
-    background-color: #fff;
+    margin: 100% 0 25%;
     width: 100%;
     & .dashboard-content {
-      width: 100%;
+      background-color: #fff;
+      margin: 0 2rem;
       padding: 1.5rem 1rem;
+      opacity: .90;
+      & .row {
+        opacity: 1;
+      }
     }
   }
+}
+
+.fixed-container {
+  position: fixed;
+  left: 50%;
+  margin-left: -50%;
 }
 
 .App-logo {
@@ -34,8 +47,30 @@
   font-size: large;
 }
 
+.app-content {
+  padding-top: 68px;
+}
+
 .pad-y {
   padding-bottom: 1rem;
+}
+
+.float-l {
+  float: left;
+}
+
+.float-r {
+  float: right;
+}
+
+.top-bar-nav {
+  width: 100%;
+  position: fixed;
+  font-family: Georgia, serif;
+  color: #fff;
+  font-weight: lighter;
+  font-style: italic;
+  border-bottom: 1px solid #fff;
 }
 
 @keyframes App-logo-spin {
