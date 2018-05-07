@@ -22,19 +22,19 @@ export default function DashboardContainer({ history }) {
           <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
             <ButtonMain
               label="Reverse Mortgage"
-              onClick={() => history.push(routeConstants.ReverseMortgageFormContainer.fullRoute)}
+              onClick={() => history.push(routeConstants.ReverseMortgageForm.fullRoute)}
             />
           </div>
           <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
             <ButtonMain
               label="Traditional Mortgage"
-              onClick={() => history.push(routeConstants.TraditionalMortgageFormContainer.fullRoute)}
+              onClick={() => history.push(routeConstants.TraditionalMortgageForm.fullRoute)}
             />
           </div>
           <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
             <ButtonMain
               label="Private Company Mortgage"
-              onClick={() => history.push(routeConstants.PrivateCompanyMortgageFormContainer.fullRoute)}
+              onClick={() => history.push(routeConstants.PrivateCompanyMortgageForm.fullRoute)}
             />
           </div>
         </div>

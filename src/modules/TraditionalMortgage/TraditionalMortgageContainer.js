@@ -13,7 +13,7 @@ export class TraditionalMortgageContainer extends Component {
     super(props);
     autobind(this);
     this.state = {
-      currentPage: '1',
+      currentPage: 2,
     }
   }
 
@@ -52,21 +52,20 @@ TraditionalMortgageContainer.propTypes = {
   params: shape({
     page: string.isRequired,
   }),
-  currentValues: shape({}).isRequired,
+  currentValues: shape({}),
   isReady: bool.isRequired,
   history: shape({}).isRequired,
 }
 
-TraditionalMortgageContainer.defaultProps = {};
+TraditionalMortgageContainer.defaultProps = {
+  currentValues: {},
+};
 
 function mapStateToProps(state, ownProps) {
   // const isReady = state.status.mortgage[type] === status.DONE;
   const page = ownProps.match.params.page;
-  console.log(state);
-  console.log('default form fields: ', defaultFormFields);
   const currentValues = _.get(state, `TraditionalMortgage[${page}]`, defaultFormFields['traditional-mortgage'][page]);
   const isReady = false;
-  console.log(state);
   return {
     isReady,
     params: ownProps.match.params,

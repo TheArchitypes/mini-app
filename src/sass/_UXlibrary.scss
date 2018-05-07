@@ -30,3 +30,28 @@ button {
     color: #fff;
   }
 }
+
+.accordion-container {
+  width: 100%;
+  .accordion-nav-l, .accordion-nav-r {
+    width: 10%;
+  }
+  .accordion-content {
+    width: 80%;
+    position: relative;
+    .accordion-child {
+      position: absolute;
+      z-index: 1;
+      &.active {
+        right: 50%;
+        z-index: 2;
+      }
+      &.before {
+        right: 75%;
+      }
+      &.after {
+        right: 25%;
+      }
+    }
+  }
+}

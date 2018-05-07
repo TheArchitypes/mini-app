@@ -18,7 +18,7 @@ const TraditionalMortgage =
     <form onSubmit={handleSubmit}>
       {Object.keys(formFields).map((field, index) => (
         <div key={index}>
-          <input name={formFields[field].label} value={values[field]} />
+          <input name={formFields[field].label} value={values[field]} onChange={value => handleChange(`${formFields[field].label}`, value)}/>
         </div>
       ))}
     </form>
