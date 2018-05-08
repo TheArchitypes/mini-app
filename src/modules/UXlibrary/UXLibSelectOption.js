@@ -11,7 +11,7 @@ export default function UXLibSelectOption(props) {
         type={type}
         value={value}
         placeholder={defaultValue}
-        onChange={e => { e.preventDefault(); onChange(); }}
+        onChange={onChange}
         disabled={disabled}
         name={name}
         id={name}

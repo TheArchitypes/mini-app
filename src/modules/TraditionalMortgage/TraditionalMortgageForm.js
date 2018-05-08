@@ -30,7 +30,7 @@ const TraditionalMortgage =
             defaultValue={formFields[field].defaultValue}
             label={formFields[field].label}
             values={_.get(formFields[field], 'values', [])}
-            onChange={event => handleChange('firstName', event.target.value)}
+            onChange={event => handleChange(field, _.get(event, 'target.value', event))}
           />
         </div>
       ))}

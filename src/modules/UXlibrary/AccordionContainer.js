@@ -54,12 +54,14 @@ export class AccordionContainer extends Component {
 
   calcStyleByIndex(index, className) {
     const { currentPage } = this.state;
-    const distanceFromCurrent = Math.abs(currentPage - (index + 1));
+    const distanceFromCurrent = currentPage - (index + 1);
+    const distanceFromCurrentAbs = Math.abs(currentPage - (index + 1));
+    console.log('distance from current: ', distanceFromCurrent, index + 1);
     if (className.indexOf('after') !== -1) {
-      return { left: `${75 - distanceFromCurrent}%`, 'zIndex': `${9999 - distanceFromCurrent}` };
+      return { right: `${25 - distanceFromCurrentAbs}%`, 'zIndex': `${9999 - distanceFromCurrentAbs}` };
     }
     if (className.indexOf('before') !== -1) {
-      return { left: `${25 + distanceFromCurrent}%`, 'zIndex': `${9999 - distanceFromCurrent}` };
+      return { left: `${25 - distanceFromCurrent}%`, 'zIndex': `${9999 - distanceFromCurrentAbs}` };
     }
   }
 
