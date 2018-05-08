@@ -5,7 +5,6 @@ import { ButtonMain } from 'modules/UXlibrary/ButtonMain';
 import logo from '../../logo.svg';
 
 export default function DashboardContainer({ history }) {
-  console.log('history: ', history);
   return (
     <div className="dashboard">
       <div className="dashboard-content">

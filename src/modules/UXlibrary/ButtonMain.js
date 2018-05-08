@@ -5,8 +5,6 @@ import Icon from './Icon';
 
 export function ButtonMain(props) {
   const {onClick, className, label, icon, disabled} = props;
-  console.log('icon: ', icon);
-  console.log(_.isEmpty(icon));
   return (
     <button
       onClick={onClick}

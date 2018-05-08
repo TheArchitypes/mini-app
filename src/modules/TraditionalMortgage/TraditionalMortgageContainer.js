@@ -13,7 +13,7 @@ export class TraditionalMortgageContainer extends Component {
     super(props);
     autobind(this);
     this.state = {
-      currentPage: 2,
+      currentPage: 1,
     }
   }
 
@@ -22,7 +22,7 @@ export class TraditionalMortgageContainer extends Component {
   }
 
   render() {
-    const { status, currentValues } = this.props;
+    const { status, currentValues, history } = this.props;
     const { currentPage } = this.state;
     // if (!status) {
     //   return(
@@ -35,6 +35,7 @@ export class TraditionalMortgageContainer extends Component {
           {Object.keys(defaultFormFields['traditional-mortgage']).map((form, index) => (
             <div className="accordion-division" key={index}>
               <TraditionalMortgageForm
+                history={history}
                 onSuccess={this.handleSuccess}
                 formFields={defaultFormFields['traditional-mortgage'][form]}
                 values={{}}
@@ -54,7 +55,6 @@ TraditionalMortgageContainer.propTypes = {
   }),
   currentValues: shape({}),
   isReady: bool.isRequired,
-  history: shape({}).isRequired,
 }
 
 TraditionalMortgageContainer.defaultProps = {
@@ -68,6 +68,7 @@ function mapStateToProps(state, ownProps) {
   const isReady = false;
   return {
     isReady,
+    history: ownProps.history,
     params: ownProps.match.params,
     currentPage: _.get(state, 'CurrentPage', null),
     currentValues,

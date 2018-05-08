@@ -4,6 +4,8 @@ import { withFormik } from 'formik';
 import Yup from 'yup';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
+import routeConstants from 'config/routeConstants';
+import { ButtonMain } from 'modules/UXlibrary/ButtonMain';
 import { FormInput } from 'modules/UXlibrary/FormInput'
 
 const TraditionalMortgage =
@@ -13,16 +15,39 @@ const TraditionalMortgage =
     errors,
     setFieldValue: handleChange,
     handleSubmit,
+    history,
     formFields,
-  }) => (
+  }) => {
+  console.log('values: ', values);
+  return(
     <form onSubmit={handleSubmit}>
       {Object.keys(formFields).map((field, index) => (
-        <div key={index}>
-          <input name={formFields[field].label} value={values[field]} onChange={value => handleChange(`${formFields[field].label}`, value)}/>
+        <div className="form-input" key={index}>
+          <FormInput
+            name={field}
+            type={formFields[field].type}
+            value={values[field]}
+            defaultValue={formFields[field].defaultValue}
+            label={formFields[field].label}
+            values={_.get(formFields[field], 'values', [])}
+            onChange={event => handleChange('firstName', event.target.value)}
+          />
         </div>
       ))}
+      <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
+        <ButtonMain
+          label="Save"
+          onClick={handleSubmit}
+        />
+      </div>
+      <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
+        <ButtonMain
+          label="Cancel"
+          onClick={() => history.push(routeConstants.MiniAppDashboard.fullRoute)}
+        />
+      </div>
     </form>
-  )
+  )};
 
   {
     const { shape, func } = PropTypes;
@@ -33,6 +58,7 @@ const TraditionalMortgage =
       errors: shape({}).isRequired,
       setFieldValue: func.isRequired,
       handleSubmit: func.isRequired,
+      history: shape({}).isRequired,
       formFields: shape({}).isRequired
     }
   }
@@ -40,7 +66,7 @@ const TraditionalMortgage =
   const validationSchema = (props) => {
     const newValidation = _.reduce(props.formFields, (fieldAcc, fieldObj, fieldKey) => ({
       ...fieldAcc,
-      [fieldKey]: Yup.string().required(`${fieldKey} is required`),
+      [fieldKey]: Yup.string(),
     }), {});
     return Yup.object().shape({
       ...newValidation,
@@ -52,15 +78,17 @@ const TraditionalMortgage =
     mapPropsToValues: ({ formFields }) => {
       const formFieldsToValues = _.reduce(formFields, (fieldAcc, fieldObj, fieldKey) => ({
         ...fieldAcc,
-        [fieldKey]: fieldObj.defaultValue,
+        [fieldKey]: fieldObj.value,
       }), {});
-      console.log('form field values: ', formFieldsToValues);
+      console.log('form fields to values: ', formFieldsToValues);
       return {
         ...formFieldsToValues,
       };
     },
     handleSubmit: (payload, { props, setSubmitting }) => {
+      console.log('payload: ', payload);
       setSubmitting(false);
+      console.log('payload: ', payload);
       const newPayload = _.reduce(props.formFields, (fieldAcc, fieldObj, fieldKey) => ({
         ...fieldAcc,
         [fieldKey]: payload[fieldKey],

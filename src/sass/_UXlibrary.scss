@@ -39,18 +39,29 @@ button {
   .accordion-content {
     width: 80%;
     position: relative;
+    display: flex;
+    flex-flow: row wrap;
     .accordion-child {
       position: absolute;
-      z-index: 1;
+      background-color: #fff;
       &.active {
-        right: 50%;
-        z-index: 2;
+        left: 50%;
+        margin-left: -25%;
+        z-index: 9999;
+        min-width: 50%;
+        border: 1px solid #000;
       }
       &.before {
-        right: 75%;
+        left: 25%;
+        margin-left: -25%;
+        min-width: 25%;
+        border: 1px solid grey;
       }
       &.after {
-        right: 25%;
+        left: 100%;
+        margin-left: -25%;
+        min-width: 25%;
+        border: 1px solid grey;
       }
     }
   }
