@@ -80,8 +80,13 @@ export class AccordionContainer extends Component {
             const childClassName = this.setPositionByIndex(index);
             const childStyle = this.calcStyleByIndex(index, childClassName);
             return (
-              <div key={index} className={childClassName} style={childStyle} onClick={(index + 1) !== currentPage ? () => this.handleChangePage(index) : () => {}}>
-                {child}
+              <div
+                key={index}
+                className={childClassName}
+                style={childStyle}
+                onClick={(index + 1) !== currentPage ? () => this.handleChangePage(index) : () => {}}
+              >
+                <span className={(index + 1) !== currentPage ? 'overlay' : ''}>{child}</span>
               </div>
             );
           })}

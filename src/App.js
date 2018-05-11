@@ -9,7 +9,7 @@ import TopNav from 'modules/TopNav';
 import bg from './assets/images/bg.jpg';
 import './sass/index.scss';
 import 'open-iconic/font/css/open-iconic.css';
-import 'hover.css';
+// import 'hover.css';
 
 function App({ history }) {
   console.log('history: ', history);

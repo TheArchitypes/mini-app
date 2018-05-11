@@ -71,11 +71,41 @@ export default {
         },
       },
       2: {
-        test: {
-          type: 'input',
+        bank: {
+          type: 'selectOption',
           value: '',
-          defaultValue: 'page 2',
-          label: 'Page 2',
+          defaultValue: 'Select One',
+          label: 'Bank Name',
+          validation: 'required',
+          values: [
+            {value: 'wellsFargo', label: 'Wells Fargo'},
+            {value: 'bofa', label: 'Bank of America'},
+            {value: 'citigroup', label: 'Citigroup'},
+            {value: 'usbanCorp', label: 'U.S. Bancorp'},
+            {value: 'morganStanley', label: 'Morgan Stanley'},
+            {value: 'goldmanSachs', label: 'Goldman Sachs'},
+            {value: 'other', label: 'Other'},
+          ]
+        },
+        accountType: {
+          type: 'selectOption',
+          value: '',
+          defaultValue: 'Select One',
+          label: 'Account Type',
+          validation: 'required',
+          values: [
+            {value: 'checking', label: 'Checking'},
+            {value: 'savings', label: 'Savings'},
+            {value: 'moneyMarket', label: 'Money Market'},
+            {value: 'ira', label: 'IRA'},
+          ]
+        },
+        balance: {
+          type: 'text',
+          value: '',
+          defaultValue: 'Balance',
+          label: 'Balance',
+          validation: 'required',
         }
       },
       3: {

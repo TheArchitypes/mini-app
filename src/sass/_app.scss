@@ -10,13 +10,17 @@
     top: 0;
   }
   .dashboard {
+    font-family: acherusgrotesque-regular;
     position: absolute;
     width: 100%;
     & .dashboard-content {
+      position: relative;
+      width: 50%;
       background-color: #fff;
       margin: 0 2rem;
       padding: 1.5rem 1rem;
       opacity: .90;
+      left: 25%;
       & .row {
         opacity: 1;
       }
@@ -113,4 +117,137 @@
       }
     }
   }
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes fadeOut {
+    100% {
+        display: block;
+        opacity: 1;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    0% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fadeOut {
+  100% {
+      display: block;
+      opacity: 1;
+  }
+  1% {
+      display: block;
+      opacity: 0;
+  }
+  0% {
+      display: none;
+      opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  100% {
+      display: block;
+      opacity: 1;
+  }
+  1% {
+      display: block;
+      opacity: 0;
+  }
+  0% {
+      display: none;
+      opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  100% {
+      display: block;
+      opacity: 1;
+  }
+  1% {
+      display: block;
+      opacity: 0;
+  }
+  0% {
+      display: none;
+      opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
 }

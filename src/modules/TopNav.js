@@ -23,10 +23,14 @@ export class TopNav extends Component {
     });
   }
 
-  render() {
+  navigateAndClosePopup(route) {
     const { history } = this.props;
+    this.popoutNav();
+    history.push(route);
+  }
+
+  render() {
     const { popoutNav } = this.state;
-console.log('history: ', history);
     return (
       <div className="top-bar-nav">
         <div className=" title float-l">
@@ -48,21 +52,21 @@ console.log('history: ', history);
                 <ButtonMain
                   className="hvr-float-shadow"
                   label="REVERSE MORTGAGE"
-                  onClick={() => history.push(routeConstants.ReverseMortgageForm.fullRoute)}
+                  onClick={() => this.navigateAndClosePopup(routeConstants.ReverseMortgageForm.fullRoute)}
                 />
               </div>
               <div className="col">
                 <ButtonMain
                   className="hvr-float-shadow"
                   label="TRADITIONAL MORTGAGE"
-                  onClick={() => history.push(routeConstants.TraditionalMortgageForm.fullRoute)}
+                  onClick={() => this.navigateAndClosePopup(routeConstants.TraditionalMortgageForm.fullRoute)}
                 />
               </div>
               <div className="col">
                 <ButtonMain
                   className="hvr-float-shadow"
                   label="PRIVATE COMPANY MORTGAGE"
-                  onClick={() => history.push(routeConstants.PrivateCompanyMortgageForm.fullRoute)}
+                  onClick={() => this.navigateAndClosePopup(routeConstants.PrivateCompanyMortgageForm.fullRoute)}
                 />
               </div>
               <div className="col last close">
