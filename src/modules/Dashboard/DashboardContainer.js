@@ -8,35 +8,7 @@ export default function DashboardContainer({ history }) {
   return (
     <div className="dashboard">
       <div className="dashboard-content">
-        <div className="row pad-y">
-          <img src={logo} className="App-logo" alt="logo" />
-        </div>
-        <div className="row pad-y">
-          <ButtonMain
-            label="MissionStatement and Corporation History"
-            onClick={() => history.push(routeConstants.MissionStatement.fullRoute)}
-          />
-        </div>
-        <div className="row pad-y">
-          <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
-            <ButtonMain
-              label="Reverse Mortgage"
-              onClick={() => history.push(routeConstants.ReverseMortgageForm.fullRoute)}
-            />
-          </div>
-          <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
-            <ButtonMain
-              label="Traditional Mortgage"
-              onClick={() => history.push(routeConstants.TraditionalMortgageForm.fullRoute)}
-            />
-          </div>
-          <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
-            <ButtonMain
-              label="Private Company Mortgage"
-              onClick={() => history.push(routeConstants.PrivateCompanyMortgageForm.fullRoute)}
-            />
-          </div>
-        </div>
+
       </div>
     </div>
   );
@@ -45,6 +17,10 @@ export default function DashboardContainer({ history }) {
 {
   const { shape } = PropTypes;
   DashboardContainer.propTypes = {
-    history: shape({}).isRequried,
+    history: shape({}),
+  }
+
+  DashboardContainer.defaultProps = {
+    history: () => {},
   }
 }

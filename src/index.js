@@ -10,7 +10,6 @@ import Routes from './Routes';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
-import './sass/index.scss';
 import registerServiceWorker from './registerServiceWorker';
 
 const history = createHistory();

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import autobind from 'class-autobind';
+import routeConstants from 'config/routeConstants';
 import { ButtonMain } from 'modules/UXlibrary/ButtonMain';
 
 export class TopNav extends Component {
@@ -18,39 +20,78 @@ export class TopNav extends Component {
     const { popoutNav } = this.state;
     this.setState({
       popoutNav: !popoutNav,
-    }, () => {
-      console.log('popout nav');
     });
   }
 
   render() {
     const { history } = this.props;
-
+    const { popoutNav } = this.state;
+console.log('history: ', history);
     return (
       <div className="top-bar-nav">
-        <div className="float-l">
-          <h2>The Archetypes</h2>
+        <div className=" title float-l">
+          <Link to={routeConstants.MiniAppDashboard.fullRoute}>
+            <h2>The Archetypes</h2>
+          </Link>
         </div>
-        <div className="float-r">
-          <ButtonMain onClick={this.popoutNav} icon={{ icon: 'menu', text: 'Menu' }}/>
+        <div className={popoutNav ? 'menu float-r fade-out-r' : 'menu float-r'}>
+          <ButtonMain
+            className="hvr-float-shadow"
+            onClick={this.popoutNav}
+            icon={{ icon: 'menu', text: 'MENU' }}
+          />
         </div>
+        {popoutNav &&
+          <div className={popoutNav ? 'popout-menu float-r fade-in-from-none' : 'popout-menu float-r'}>
+            <div className="row pad-y">
+              <div className="col">
+                <ButtonMain
+                  className="hvr-float-shadow"
+                  label="REVERSE MORTGAGE"
+                  onClick={() => history.push(routeConstants.ReverseMortgageForm.fullRoute)}
+                />
+              </div>
+              <div className="col">
+                <ButtonMain
+                  className="hvr-float-shadow"
+                  label="TRADITIONAL MORTGAGE"
+                  onClick={() => history.push(routeConstants.TraditionalMortgageForm.fullRoute)}
+                />
+              </div>
+              <div className="col">
+                <ButtonMain
+                  className="hvr-float-shadow"
+                  label="PRIVATE COMPANY MORTGAGE"
+                  onClick={() => history.push(routeConstants.PrivateCompanyMortgageForm.fullRoute)}
+                />
+              </div>
+              <div className="col last close">
+                <ButtonMain
+                  className="hvr-float-shadow"
+                  icon={{ icon: 'ellipses', text: '' }}
+                  onClick={this.popoutNav}
+                />
+              </div>
+            </div>
+          </div>
+        }
       </div>
     );
   }
 }
 
-const { shape, string, number, bool } = PropTypes;
-TopNav.propTypes = {
-  history: shape({}).isRequired,
-}
+const {} = PropTypes;
+TopNav.propTypes = {}
 
 TopNav.defaultProps = {};
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   // const isReady = state.status.mortgage[type] === status.DONE;
   const isReady = false;
+  console.log('own props: ', ownProps);
   return {
     isReady,
+    history: _.get(ownProps, 'history', {}),
   }
 }
 

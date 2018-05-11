@@ -8,7 +8,7 @@ export function ButtonMain(props) {
   return (
     <button
       onClick={onClick}
-      className="className"
+      className={className}
       disabled={disabled}
     >
       <span>

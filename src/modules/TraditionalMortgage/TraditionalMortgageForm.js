@@ -21,31 +21,35 @@ const TraditionalMortgage =
   console.log('values: ', values);
   return(
     <form onSubmit={handleSubmit}>
-      {Object.keys(formFields).map((field, index) => (
-        <div className="form-input" key={index}>
-          <FormInput
-            name={field}
-            type={formFields[field].type}
-            value={values[field]}
-            defaultValue={formFields[field].defaultValue}
-            label={formFields[field].label}
-            values={_.get(formFields[field], 'values', [])}
-            onChange={event => handleChange(field, _.get(event, 'target.value', event))}
-          />
-        </div>
-      ))}
-      <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
-        <ButtonMain
-          label="Save"
-          onClick={handleSubmit}
-        />
-      </div>
-      <div className="col" style={{ width: "33%", float: "left", margin: "0" }}>
-        <ButtonMain
-          label="Cancel"
-          onClick={() => history.push(routeConstants.MiniAppDashboard.fullRoute)}
-        />
-      </div>
+      <ul className="form-style-1">
+        {Object.keys(formFields).map((field, index) => (
+          <li className="form-input" key={index}>
+            <FormInput
+              name={field}
+              type={formFields[field].type}
+              value={values[field]}
+              defaultValue={formFields[field].defaultValue}
+              label={formFields[field].label}
+              values={_.get(formFields[field], 'values', [])}
+              onChange={event => handleChange(field, _.get(event, 'target.value', event))}
+            />
+          </li>
+        ))}
+        <li>
+          <div className="col hvr-grow" style={{ width: "33%", margin: "0" }}>
+            <ButtonMain
+              label="Save"
+              onClick={handleSubmit}
+            />
+          </div>
+          <div className="col hvr-grow" style={{ width: "33%", margin: "0" }}>
+            <ButtonMain
+              label="Cancel"
+              onClick={() => history.push(routeConstants.MiniAppDashboard.fullRoute)}
+            />
+          </div>
+        </li>
+      </ul>
     </form>
   )};
 

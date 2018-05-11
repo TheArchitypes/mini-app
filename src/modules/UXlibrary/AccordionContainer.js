@@ -58,10 +58,10 @@ export class AccordionContainer extends Component {
     const distanceFromCurrentAbs = Math.abs(currentPage - (index + 1));
     console.log('distance from current: ', distanceFromCurrent, index + 1);
     if (className.indexOf('after') !== -1) {
-      return { right: `${25 - distanceFromCurrentAbs}%`, 'zIndex': `${9999 - distanceFromCurrentAbs}` };
+      return { right: `${30 - distanceFromCurrentAbs}%`, 'zIndex': `${9999 - distanceFromCurrentAbs}` };
     }
     if (className.indexOf('before') !== -1) {
-      return { left: `${25 - distanceFromCurrent}%`, 'zIndex': `${9999 - distanceFromCurrentAbs}` };
+      return { left: `${30 - distanceFromCurrent}%`, 'zIndex': `${9999 - distanceFromCurrentAbs}` };
     }
   }
 
@@ -70,8 +70,8 @@ export class AccordionContainer extends Component {
     const { currentPage } = this.state;
     return (
       <div className="accordion-container fixed-container">
-        <div className="accordion-nav-l col float-l">
-          <button onClick={this.backwardPage}>
+        <div className={currentPage !== 1 ? 'accordion-nav-l col float-l' : 'accordion-nav-l col float-l disabled'}>
+          <button onClick={this.backwardPage} disabled={currentPage === 1} className={currentPage !== 1 ? 'hvr-bubble-float-left' : ''}>
             <span className="oi" data-glyph="chevron-left"></span>
           </button>
         </div>
@@ -86,8 +86,8 @@ export class AccordionContainer extends Component {
             );
           })}
         </div>
-        <div className="accordion-nav-r col float-r">
-          <button onClick={this.forwardPage}>
+        <div className={currentPage !== children.length ? 'accordion-nav-r col float-r' : 'accordion-nav-r col float-r disabled'}>
+          <button onClick={this.forwardPage} disabled={currentPage === children.length} className={currentPage !== children.length ? 'hvr-bubble-float-right' : ''}>
             <span className="oi" data-glyph="chevron-right"></span>
           </button>
         </div>

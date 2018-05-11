@@ -1,11 +1,12 @@
 @import "./utils/mixins";
 @import "./utils/icons";
 @import "./utils/variables";
+@import "./utils/typography";
 @import "./app";
 @import "./UXlibrary";
+@import "./forms";
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }

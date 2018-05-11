@@ -6,12 +6,12 @@ export default function Icon(props) {
   const { icon: {icon, size, title, aria, text} } = props;
   return(
     <span
-      className={size ? `oi ${size}` : 'iconic'}
+      className={size ? `icon oi ${size}` : 'icon oi'}
       data-glyph={icon}
       title={title}
       aria-hidden={aria}
     >
-      {text}
+      <span>{text}</span>
     </span>
   );
 }

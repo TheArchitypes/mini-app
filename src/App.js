@@ -8,15 +8,17 @@ import routeConstants from 'config/routeConstants';
 import TopNav from 'modules/TopNav';
 import bg from './assets/images/bg.jpg';
 import './sass/index.scss';
+import 'open-iconic/font/css/open-iconic.css';
+import 'hover.css';
 
 function App({ history }) {
-  console.log(history);
+  console.log('history: ', history);
   return (
     <div className="App">
       <span className="bg-image">
         <img src={bg} alt="bg" />
       </span>
-      <TopNav histoy={history}/>
+      <TopNav history={history}/>
       <div className="app-content">
         <Switch>
           {DashboardRoutes}

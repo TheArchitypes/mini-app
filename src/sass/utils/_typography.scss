@@ -1,0 +1,14 @@
+$font-Size:16px;
+
+@mixin font-face($fontFamily, $fileName, $fontStyle, $fontWeight) {
+  @font-face {
+    font-family: $fontFamily;
+    src: url('/assets/fonts/#{$fontFamily}/#{$fileName}.woff') format('woff');
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+  }
+}
+
+@include font-face("acherusgrotesque-regular",acherusgrotesque-regular-webfont,normal,normal);
+@include font-face("acherusgrotesque-regularitalic",acherusgrotesque-regularitalic-webfont,normal,normal);
+@include font-face("garogierregular",Garogier-webfont,normal,normal);
