@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 // import status from 'constants/status';
 import autobind from 'class-autobind';
 import defaultFormFields from 'config/formFields';
+import ProgressBar from './ProgressBar';
 
 export class AccordionContainer extends Component {
   constructor(props) {
@@ -110,18 +111,12 @@ export class AccordionContainer extends Component {
             <span className="oi" data-glyph="chevron-right"></span>
           </button>
         </div>
-        <div className="progress-bar">
-          {React.Children.map(children, (child, index) => (
-            <div
-              key={index}
-              className={`progress-bar-element ${progress[index].progress}`}
-              style={{width: `${100 / children.length}%`}}
-              onClick={(index + 1) !== currentPage ? () => this.handleChangePage(index) : () => {}}
-              >
-              Section: {index+1}
-            </div>
-          ))}
-        </div>
+        <ProgressBar
+          children={children}
+          currentPage={currentPage}
+          onClick={this.handleChangePage}
+          progress={progress}
+        />
       </div>
     );
   }

@@ -86,7 +86,7 @@ button {
     }
   }
   .progress-bar {
-    width: 75%;
+    width: 50%;
     position: fixed;
     bottom: 16px;
     left: 50%;
@@ -94,19 +94,22 @@ button {
     .progress-bar-element {
       height: 20px;
       float: left;
+      cursor: pointer;
+      border: 1px solid #000;
+      box-sizing: border-box;
       &:first-child {
         border-radius: 10px 0 0 10px;
       }
       &:last-child {
         border-radius: 0 10px 10px 0;
       }
-      &.in-progress {
+      &.complete {
         background-color: green;
       }
       &.incomplete {
         background-color: red;
       }
-      &.not-started {
+      &.in-progress, &.not-started {
         background-color: white;
       }
     }
