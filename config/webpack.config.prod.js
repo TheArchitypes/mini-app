@@ -109,6 +109,7 @@ module.exports = {
       modules: paths.modulesPath,
       config: paths.configPath,
       sass: paths.sassPath,
+      selectors: paths.selectorsPath,
       // @remove-on-eject-end
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/

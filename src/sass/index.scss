@@ -11,3 +11,21 @@ body {
   margin: 0;
   padding: 0;
 }
+
+form {
+  max-height: 700px;
+  overflow: auto;
+  .row {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    display: border-box;
+    float: left;
+  }
+  .col {
+    float: left;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    display: border-box;
+  }
+}

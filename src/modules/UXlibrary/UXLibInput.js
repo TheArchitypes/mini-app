@@ -21,13 +21,16 @@ export default function UXLibInput(props) {
   );
 }
 
-const { string, func, bool } = PropTypes;
+const { string, func, bool, oneOfType, element } = PropTypes;
 UXLibInput.propTypes = {
   name: string.isRequired,
   type: string.isRequired,
   value: string.isRequired,
   defaultValue: string.isRequired,
-  label: string.isRequired,
+  label: oneOfType([
+    string,
+    element,
+  ]).isRequired,
   onChange: func.isRequired,
   disabled: bool.isRequired,
 }

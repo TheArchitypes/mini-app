@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import autobind from 'class-autobind';
 import defaultFormFields from 'config/formFields';
 import { AccordionContainer } from 'modules/UXlibrary/AccordionContainer';
-import { TraditionalMortgageForm } from './TraditionalMortgageForm';
+import { StaticTraditionalMortgageForm1a } from './StaticTraditionalMortgageForm1a';
+import { StaticTraditionalMortgageForm1b } from './StaticTraditionalMortgageForm1b';
 
 export class TraditionalMortgageContainer extends Component {
   constructor(props) {
@@ -29,19 +30,41 @@ export class TraditionalMortgageContainer extends Component {
     //     <h2>Form Loading...</h2>
     //   );
     // }
+    // return (
+    //   <div className="tradition-mortgage-container">
+    //     <AccordionContainer currentPage={currentPage} >
+    //       {Object.keys(defaultFormFields['traditional-mortgage']).map((form, index) => (
+    //         <div className="accordion-division" key={index}>
+    //           <StaticTraditionalMortgageForm
+    //             history={history}
+    //             onSuccess={this.handleSuccess}
+    //             formFields={defaultFormFields['traditional-mortgage'][form]}
+    //             values={{}}
+    //           />
+    //         </div>
+    //       ))}
+    //     </AccordionContainer>
+    //   </div>
+    // );
     return (
       <div className="tradition-mortgage-container">
         <AccordionContainer currentPage={currentPage} >
-          {Object.keys(defaultFormFields['traditional-mortgage']).map((form, index) => (
-            <div className="accordion-division" key={index}>
-              <TraditionalMortgageForm
-                history={history}
-                onSuccess={this.handleSuccess}
-                formFields={defaultFormFields['traditional-mortgage'][form]}
-                values={{}}
-              />
-            </div>
-          ))}
+          <div className="accordion-division">
+            <StaticTraditionalMortgageForm1a
+              history={history}
+              onSuccess={this.handleSuccess}
+              formFields={{}}
+              values={{}}
+            />
+          </div>
+          <div className="accordion-division">
+            <StaticTraditionalMortgageForm1b
+              history={history}
+              onSuccess={this.handleSuccess}
+              formFields={{}}
+              values={{}}
+            />
+          </div>
         </AccordionContainer>
       </div>
     );

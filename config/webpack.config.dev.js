@@ -99,6 +99,7 @@ module.exports = {
       'babel-runtime': path.dirname(require.resolve('babel-runtime/package.json')),
       modules: paths.modulesPath,
       config: paths.configPath,
+      selectors: paths.selectorsPath,
       sass: paths.sassPath,
       // @remove-on-eject-end
       // Support React Native Web

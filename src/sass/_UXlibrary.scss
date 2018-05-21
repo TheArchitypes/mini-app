@@ -35,8 +35,19 @@ button {
     -o-animation: fadeInAccordion 1s ease-out;
     animation: fadeInAccordion 1s ease-out;
     .accordion-child {
+      font-family: Myriad Pro;
+      font-size: 9pt;
       position: absolute;
       background-color: #fff;
+      .section-tab {
+        float: left;
+        background-color: #fff;
+        border: 1px solid #000;
+        position: relative;
+        top: -36px;
+        cursor: pointer;
+        padding: .5rem;
+      }
       &.active {
         left: 50%;
         margin-left: -25%;
@@ -50,18 +61,54 @@ button {
       &.before {
         left: 25%;
         margin-left: -25%;
-        min-width: 25%;
+        min-width: 50%;
         border: 1px solid grey;
+        -ms-transform: scale(0.90, 0.90); /* IE 9 */
+        -webkit-transform: scale(0.90, 0.90); /* Safari */
+        transform: scale(0.90, 0.90);
       }
       &.after {
         right: 25%;
         margin-right: -25%;
-        min-width: 25%;
+        min-width: 50%;
         border: 1px solid grey;
+        top: 20px;
+        -ms-transform: scale(0.90, 0.90); /* IE 9 */
+        -webkit-transform: scale(0.90, 0.90); /* Safari */
+        transform: scale(0.90, 0.90);
+      }
+      .accordion-division {
+        overflow: auto;
       }
     }
     .overlay {
       pointer-events: none;
+    }
+  }
+  .progress-bar {
+    width: 75%;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    margin-left: -25%;
+    .progress-bar-element {
+      height: 20px;
+      float: left;
+      &:first-child {
+        border-radius: 10px 0 0 10px;
+      }
+      &:last-child {
+        border-radius: 0 10px 10px 0;
+      }
+      &.in-progress {
+        background-color: green;
+      }
+      &.incomplete {
+        background-color: red;
+      }
+      &.not-started {
+        background-color: white;
+      }
     }
   }
 }

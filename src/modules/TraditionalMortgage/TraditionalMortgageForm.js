@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import routeConstants from 'config/routeConstants';
 import { ButtonMain } from 'modules/UXlibrary/ButtonMain';
 import { FormInput } from 'modules/UXlibrary/FormInput'
+import { reducePropsToValues, reducePropsToValidation, reduceValuesToPayload } from 'selectors/FormSelectors';
 
 const TraditionalMortgage =
   ({
@@ -18,9 +19,12 @@ const TraditionalMortgage =
     history,
     formFields,
   }) => {
-  console.log('values: ', values);
   return(
     <form onSubmit={handleSubmit}>
+      <h2>Uniform Residential Loan Application</h2>
+      <p><strong>Verify and complete the information on thie application.</strong> If you are appliting for this loan with others, each additional Borrower must provide information as directed by your lender.</p>
+      <span className="form -break" />
+      <p><h2>Section 1: Borrower Information.</h2> This section asks about yout personal information and your income from employment and other sources, such as retirement, that you want considered to qualify for this loan.</p>
       <ul className="form-style-1">
         {Object.keys(formFields).map((field, index) => (
           <li className="form-input" key={index}>
@@ -67,36 +71,12 @@ const TraditionalMortgage =
     }
   }
 
-  const validationSchema = (props) => {
-    const newValidation = _.reduce(props.formFields, (fieldAcc, fieldObj, fieldKey) => ({
-      ...fieldAcc,
-      [fieldKey]: Yup.string(),
-    }), {});
-    return Yup.object().shape({
-      ...newValidation,
-    });
-  };
-
   export const TraditionalMortgageForm = withFormik({
-    validationSchema: props => validationSchema(props),
-    mapPropsToValues: ({ formFields }) => {
-      const formFieldsToValues = _.reduce(formFields, (fieldAcc, fieldObj, fieldKey) => ({
-        ...fieldAcc,
-        [fieldKey]: fieldObj.value,
-      }), {});
-      console.log('form fields to values: ', formFieldsToValues);
-      return {
-        ...formFieldsToValues,
-      };
-    },
+    validationSchema: ({ formFields }) => reducePropsToValidation(formFields),
+    mapPropsToValues: ({ formFields }) => reducePropsToValues(formFields),
     handleSubmit: (payload, { props, setSubmitting }) => {
-      console.log('payload: ', payload);
       setSubmitting(false);
-      console.log('payload: ', payload);
-      const newPayload = _.reduce(props.formFields, (fieldAcc, fieldObj, fieldKey) => ({
-        ...fieldAcc,
-        [fieldKey]: payload[fieldKey],
-      }), {});
+      const newPaylod = reduceValuesToPayload(props.formFields, payload);
       props.onSuccess(newPayload);
     },
   })(TraditionalMortgage);

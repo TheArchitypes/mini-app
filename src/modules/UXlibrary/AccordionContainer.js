@@ -66,8 +66,13 @@ export class AccordionContainer extends Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, progress } = this.props;
     const { currentPage } = this.state;
+    console.log('progress', progress);
+    React.Children.map(children, (child, index) => {
+      console.log('index: ', index);
+      console.log('progress index: ', progress[index].progress);
+    })
     return (
       <div className="accordion-container fixed-container">
         <div className={currentPage !== 1 ? 'accordion-nav-l col float-l' : 'accordion-nav-l col float-l disabled'}>
@@ -84,9 +89,18 @@ export class AccordionContainer extends Component {
                 key={index}
                 className={childClassName}
                 style={childStyle}
-                onClick={(index + 1) !== currentPage ? () => this.handleChangePage(index) : () => {}}
               >
-                <span className={(index + 1) !== currentPage ? 'overlay' : ''}>{child}</span>
+                <span
+                  className="section-tab"
+                  onClick={(index + 1) !== currentPage ? () => this.handleChangePage(index) : () => {}}
+                >
+                  Section: {index + 1}
+                </span>
+                <div
+                  onClick={(index + 1) !== currentPage ? () => this.handleChangePage(index) : () => {}}
+                >
+                  <span className={(index + 1) !== currentPage ? 'overlay' : ''}>{child}</span>
+                </div>
               </div>
             );
           })}
@@ -96,18 +110,33 @@ export class AccordionContainer extends Component {
             <span className="oi" data-glyph="chevron-right"></span>
           </button>
         </div>
+        <div className="progress-bar">
+          {React.Children.map(children, (child, index) => (
+            <div
+              key={index}
+              className={`progress-bar-element ${progress[index].progress}`}
+              style={{width: `${100 / children.length}%`}}
+              onClick={(index + 1) !== currentPage ? () => this.handleChangePage(index) : () => {}}
+              >
+              Section: {index+1}
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
 }
 
-const { number, arrayOf, node } = PropTypes;
+const { number, arrayOf, node, shape } = PropTypes;
 AccordionContainer.propTypes = {
   currentPage: number.isRequired,
   children: arrayOf(node).isRequired,
+  progress: arrayOf(shape({})),
 }
 
-AccordionContainer.defaultProps = {};
+AccordionContainer.defaultProps = {
+  progress: [{progress: 'in-progress'}, {progress: 'incomplete'}]
+};
 
 function mapStateToProps(state) {
   // const isReady = state.status.mortgage[type] === status.DONE;
