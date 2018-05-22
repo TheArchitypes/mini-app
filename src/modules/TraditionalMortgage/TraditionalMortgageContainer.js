@@ -8,6 +8,7 @@ import defaultFormFields from 'config/formFields';
 import { AccordionContainer } from 'modules/UXlibrary/AccordionContainer';
 import { StaticTraditionalMortgageForm1a } from './StaticTraditionalMortgageForm1a';
 import { StaticTraditionalMortgageForm1b } from './StaticTraditionalMortgageForm1b';
+import { CreditDisclosureForm } from './CreditDisclosureForm';
 
 export class TraditionalMortgageContainer extends Component {
   constructor(props) {
@@ -59,6 +60,14 @@ export class TraditionalMortgageContainer extends Component {
           </div>
           <div className="accordion-division">
             <StaticTraditionalMortgageForm1b
+              history={history}
+              onSuccess={this.handleSuccess}
+              formFields={{}}
+              values={{}}
+            />
+          </div>
+          <div className="accordion-division">
+            <CreditDisclosureForm
               history={history}
               onSuccess={this.handleSuccess}
               formFields={{}}

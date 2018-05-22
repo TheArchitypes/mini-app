@@ -130,7 +130,7 @@ AccordionContainer.propTypes = {
 }
 
 AccordionContainer.defaultProps = {
-  progress: [{progress: 'in-progress'}, {progress: 'incomplete'}]
+  progress: [{progress: 'in-progress'}, {progress: 'incomplete'}, {progress: 'in-progress'}]
 };
 
 function mapStateToProps(state) {
