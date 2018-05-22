@@ -6,6 +6,7 @@ import MissionStatementRoutes from 'modules/MissionStatement/Routes';
 import TraditionalMortgageRoutes from 'modules/TraditionalMortgage/Routes';
 import routeConstants from 'config/routeConstants';
 import TopNav from 'modules/TopNav';
+import BottomNav from 'modules/BottomNav';
 import bg from './assets/images/bg.jpg';
 import './sass/index.scss';
 import 'open-iconic/font/css/open-iconic.css';
@@ -26,6 +27,7 @@ function App({ history }) {
           {TraditionalMortgageRoutes}
         </Switch>
       </div>
+      <BottomNav history={history} />
     </div>
   );
 }

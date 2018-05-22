@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import autobind from 'class-autobind';
 import routeConstants from 'config/routeConstants';
 import { ButtonMain } from 'modules/UXlibrary/ButtonMain';
+import logo from 'assets/images/first-choice.png';
 
 export class TopNav extends Component {
   constructor(props) {
@@ -35,14 +36,31 @@ export class TopNav extends Component {
       <div className="top-bar-nav">
         <div className=" title float-l">
           <Link to={routeConstants.MiniAppDashboard.fullRoute}>
-            <h2>The Archetypes</h2>
+            <img src={logo} alt="logo" />
           </Link>
+        </div>
+        <div className="menu float-center">
+          <ButtonMain
+            className="hvr-float-shadow"
+            onClick={this.popoutNav}
+            label="Contact Agent"
+          />
+          <ButtonMain
+            className="hvr-float-shadow"
+            onClick={this.popoutNav}
+            label="Loans"
+          />
+          <ButtonMain
+            className="hvr-float-shadow"
+            onClick={this.popoutNav}
+            label="About Us"
+          />
         </div>
         <div className={popoutNav ? 'menu float-r fade-out-r' : 'menu float-r'}>
           <ButtonMain
             className="hvr-float-shadow"
             onClick={this.popoutNav}
-            icon={{ icon: 'menu', text: 'MENU' }}
+            label="Login"
           />
         </div>
         {popoutNav &&

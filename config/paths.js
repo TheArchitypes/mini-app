@@ -62,6 +62,7 @@ module.exports = {
   servedPath: getServedPath(resolveApp('package.json')),
   modulesPath: resolveApp('src/modules'),
   configPath: resolveApp('src/config'),
+  assetsPath: resolveApp('src/assets'),
   selectorsPath: resolveApp('src/selectors'),
   sassPath: resolveApp('src/sass'),
 };

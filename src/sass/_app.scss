@@ -28,6 +28,10 @@
   }
 }
 
+.first-choice-logo {
+  background-image: '';
+}
+
 .fixed-container {
   position: fixed;
   left: 50%;
@@ -62,6 +66,16 @@
   float: left;
 }
 
+.float-center {
+  float: left;
+  position: relative;
+  left: 50%;
+  margin-left: -25%;
+  button {
+    margin-right: 2rem;
+  }
+}
+
 .float-r {
   float: right;
 }
@@ -70,6 +84,8 @@
   width: 100%;
   position: fixed;
   color: #fff;
+  background-color: #fff;
+  opacity: 0.9;
   border-bottom: 1px solid #fff;
   .fade-out-r {
     display: none;
@@ -115,6 +131,25 @@
       &.last.close {
         width: 10%;
       }
+    }
+  }
+}
+
+.bottom-bar-nav {
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  opacity: 0.9;
+  width: 100%;
+  font-size: 1.25rem;
+  .social-media {
+    padding: .5rem;
+  }
+  .contact-info {
+    padding-top: 20px;
+    padding-right: 20px;
+    a {
+      text-decoration: none;
     }
   }
 }
