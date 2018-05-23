@@ -63,6 +63,7 @@ module.exports = {
   modulesPath: resolveApp('src/modules'),
   configPath: resolveApp('src/config'),
   assetsPath: resolveApp('src/assets'),
+  libsPath: resolveApp('src/lib'),
   selectorsPath: resolveApp('src/selectors'),
   sassPath: resolveApp('src/sass'),
 };

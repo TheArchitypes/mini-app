@@ -31,6 +31,7 @@ export class TopNav extends Component {
   }
 
   render() {
+    const { history } = this.props;
     const { popoutNav } = this.state;
     return (
       <div className="top-bar-nav">
@@ -42,24 +43,24 @@ export class TopNav extends Component {
         <div className="menu float-center">
           <ButtonMain
             className="hvr-float-shadow"
-            onClick={this.popoutNav}
+            onClick={() => history.push(routeConstants.ContactAgent.fullRoute)}
             label="Contact Agent"
           />
           <ButtonMain
             className="hvr-float-shadow"
-            onClick={this.popoutNav}
+            onClick={() => history.push(routeConstants.LoanDashboard.fullRoute)}
             label="Loans"
           />
           <ButtonMain
             className="hvr-float-shadow"
-            onClick={this.popoutNav}
+            onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
             label="About Us"
           />
         </div>
         <div className={popoutNav ? 'menu float-r fade-out-r' : 'menu float-r'}>
           <ButtonMain
             className="hvr-float-shadow"
-            onClick={this.popoutNav}
+            onClick={() => history.push(routeConstants.Login.fullRoute)}
             label="Login"
           />
         </div>

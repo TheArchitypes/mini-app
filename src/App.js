@@ -4,6 +4,7 @@ import { Link, Switch } from 'react-router-dom';
 import DashboardRoutes from 'modules/Dashboard/Routes';
 import MissionStatementRoutes from 'modules/MissionStatement/Routes';
 import TraditionalMortgageRoutes from 'modules/TraditionalMortgage/Routes';
+import LoansRoutes from 'modules/Loans/Routes';
 import routeConstants from 'config/routeConstants';
 import TopNav from 'modules/TopNav';
 import BottomNav from 'modules/BottomNav';
@@ -23,8 +24,9 @@ function App({ history }) {
       <div className="app-content">
         <Switch>
           {DashboardRoutes}
-          {MissionStatementRoutes}
           {TraditionalMortgageRoutes}
+          {LoansRoutes}
+          {MissionStatementRoutes}
         </Switch>
       </div>
       <BottomNav history={history} />
