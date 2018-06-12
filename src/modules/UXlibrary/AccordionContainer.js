@@ -57,7 +57,6 @@ export class AccordionContainer extends Component {
     const { currentPage } = this.state;
     const distanceFromCurrent = currentPage - (index + 1);
     const distanceFromCurrentAbs = Math.abs(currentPage - (index + 1));
-    console.log('distance from current: ', distanceFromCurrent, index + 1);
     if (className.indexOf('after') !== -1) {
       return { right: `${30 - distanceFromCurrentAbs}%`, 'zIndex': `${9999 - distanceFromCurrentAbs}` };
     }
@@ -69,11 +68,6 @@ export class AccordionContainer extends Component {
   render() {
     const { children, progress } = this.props;
     const { currentPage } = this.state;
-    console.log('progress', progress);
-    React.Children.map(children, (child, index) => {
-      console.log('index: ', index);
-      console.log('progress index: ', progress[index].progress);
-    })
     return (
       <div className="accordion-container fixed-container">
         <div className={currentPage !== 1 ? 'accordion-nav-l col float-l' : 'accordion-nav-l col float-l disabled'}>
@@ -81,7 +75,7 @@ export class AccordionContainer extends Component {
             <span className="oi" data-glyph="chevron-left"></span>
           </button>
         </div>
-        <div className="accordion-content col">
+        <div className="accordion-content">
           {React.Children.map(children, (child, index) => {
             const childClassName = this.setPositionByIndex(index);
             const childStyle = this.calcStyleByIndex(index, childClassName);
@@ -130,7 +124,17 @@ AccordionContainer.propTypes = {
 }
 
 AccordionContainer.defaultProps = {
-  progress: [{progress: 'in-progress'}, {progress: 'incomplete'}, {progress: 'in-progress'}]
+  progress: [
+    {progress: 'in-progress'},
+    {progress: 'in-progress'},
+    {progress: 'incomplete'},
+    {progress: 'in-progress'},
+    {progress: 'in-progress'},
+    {progress: 'in-progress'},
+    {progress: 'in-progress'},
+    {progress: 'in-progress'},
+    {progress: 'in-progress'},
+  ]
 };
 
 function mapStateToProps(state) {

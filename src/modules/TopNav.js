@@ -56,6 +56,7 @@ export class TopNav extends Component {
             onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
             label="About Us"
           />
+          <span className="static">818-837-6600</span>
         </div>
         <div className={popoutNav ? 'menu float-r fade-out-r' : 'menu float-r'}>
           <ButtonMain
@@ -111,7 +112,6 @@ TopNav.defaultProps = {};
 function mapStateToProps(state, ownProps) {
   // const isReady = state.status.mortgage[type] === status.DONE;
   const isReady = false;
-  console.log('own props: ', ownProps);
   return {
     isReady,
     history: _.get(ownProps, 'history', {}),

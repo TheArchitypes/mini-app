@@ -45,5 +45,10 @@ export default {
     name: 'Login',
     fullRoute: `${parentRoute}/login`,
     reactRouterRoute: `${parentRoute}/login`,
-  }
+  },
+  TestForm: {
+    name: 'TestForm',
+    fullRoute: `${parentRoute}/test-form`,
+    reactRouterRoute: `${parentRoute}/test-form`,
+  },
 }

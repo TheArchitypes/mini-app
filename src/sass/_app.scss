@@ -9,6 +9,39 @@
     left: 0;
     top: 0;
   }
+  .side-bar-nav {
+    float: left;
+    width: 15%;
+    color: black;
+    background: white;
+    opacity: .90;
+    position: relative;
+    z-index: 2;
+    .row {
+      border-bottom: 1px solid black;
+    }
+    .mission-statement {
+      padding: 10px;
+    }
+    .social-media {
+      text-align: left;
+      padding: 10px;
+      a {
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .main-content {
+    float: left;
+    width: 85%;
+    position: relative;
+    z-index: 2;
+  }
   .dashboard {
     font-family: acherusgrotesque-regular;
     position: absolute;
@@ -28,14 +61,19 @@
   }
 }
 
+.react-pdf__Document {
+  max-height: 720px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  float: left;
+}
+
 .first-choice-logo {
   background-image: '';
 }
 
 .fixed-container {
   position: fixed;
-  left: 50%;
-  margin-left: -50%;
 }
 
 .App-logo {
@@ -87,6 +125,13 @@
   background-color: #fff;
   opacity: 0.9;
   border-bottom: 1px solid #c4c4c4;
+  .static {
+    color: black;
+    font-family: acherusgrotesque-regular;
+    font-size: 1.25rem;
+    position: relative;
+    top: 3px;
+  }
   .fade-out-r {
     display: none;
     -webkit-animation: fadeOut 0.5s ease-out;
