@@ -127,6 +127,7 @@ AccordionContainer.defaultProps = {
   progress: [
     {progress: 'in-progress'},
     {progress: 'in-progress'},
+    {progress: 'in-progress'},
     {progress: 'incomplete'},
     {progress: 'in-progress'},
     {progress: 'in-progress'},

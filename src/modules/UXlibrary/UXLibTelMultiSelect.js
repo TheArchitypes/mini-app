@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default function UXLibTelMultiSelect(props) {
   const { name, type, value, defaultValue, label, onChange, disabled } = props;
   return(
-    <div>
+    <div className="ux-form form-telephone">
       <label htmlFor={name}>{label}</label>
       <input
         type={type}

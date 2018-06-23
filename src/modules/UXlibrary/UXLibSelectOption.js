@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default function UXLibSelectOption(props) {
   const { name, type, value, defaultValue, label, values, onChange, disabled } = props;
   return(
-    <div>
+    <div className="ux-form form-select">
       <label htmlFor={name}>{label}</label>
       <select
         type={type}

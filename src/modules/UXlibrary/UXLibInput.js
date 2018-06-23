@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default function UXLibInput(props) {
   const { name, type, value, defaultValue, label, onChange, disabled } = props;
   return(
-    <div>
+    <div className="ux-form form-input">
       <label htmlFor={name}>{label}</label>
       <input
         type={type}

@@ -3,12 +3,12 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 export default function UXLibRadio(props) {
-  const { name, type, value, defaultValue, label, values, onChange, disabled } = props;
+  const { name, type, value, defaultValue, label, values, onChange, disabled, float } = props;
   return(
-    <div>
+    <div className="ux-form form-radio">
       <div className="radio-label">{label}</div>
         {values.map((value, index) => (
-          <div key={index}>
+          <div className={float ? 'form-radio-input float-radio' : 'form-radio=input'} key={index}>
             <input
               type={type}
               value={value}
@@ -35,6 +35,9 @@ UXLibRadio.propTypes = {
   values: arrayOf(shape({})).isRequired,
   onChange: func.isRequired,
   disabled: bool.isRequired,
+  float: bool,
 }
 
-UXLibRadio.defaultProps = {}
+UXLibRadio.defaultProps = {
+  float: false,
+}

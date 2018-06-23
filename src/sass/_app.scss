@@ -9,6 +9,70 @@
     left: 0;
     top: 0;
   }
+  form {
+    h1, h2, h3 {
+      text-align: left;
+    }
+    p {
+      text-align: left;
+    }
+    .form-section-tab {
+      text-align: left;
+      color: #fff;
+      background-color: #000;
+      border-radius: 6px 6px 0 0;
+      padding: 3px;
+      width: 122px;
+      text-align: left;
+    }
+    .form-break {
+      width: 100%;
+      height: 2px;
+      border-bottom: 2px solid #000;
+    }
+  }
+  .flex-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    text-align: left;
+    align-items: stretch;
+    align-content: stretch;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    .flex-row {
+      width: 100%;
+      flex-grow: 1;
+      flex-direction: row;
+      display: inline-flex;
+    }
+    .flex-col {
+      flex-grow: 1;
+      flex-direction: column;
+      display: inline-flex;
+      align-self: stretch;
+      border-right: 1px solid #000;
+      &:last-child {
+        border-right: none;
+      }
+    }
+    .no-border {
+      border: none;
+    }
+    input[type=text] {
+      width: 60%;
+      border: none;
+      box-shadow: none;
+      background-color: #eaedff;
+      &:focus {
+        outline: none;
+        background-color: transparent;
+      }
+    }
+  }
   .side-bar-nav {
     float: left;
     width: 15%;

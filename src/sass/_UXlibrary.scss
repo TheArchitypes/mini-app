@@ -8,6 +8,12 @@ button {
   font-size: 1.25rem;
 }
 
+.form-radio-input {
+  &.float-radio {
+    float: left;
+  }
+}
+
 .accordion-container {
   width: 85%;
   .accordion-nav-l, .accordion-nav-r {
