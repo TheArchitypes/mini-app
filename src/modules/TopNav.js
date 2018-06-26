@@ -34,71 +34,50 @@ export class TopNav extends Component {
     const { history } = this.props;
     const { popoutNav } = this.state;
     return (
-      <div className="top-bar-nav">
-        <div className=" title float-l">
-          <Link to={routeConstants.MiniAppDashboard.fullRoute}>
-            <img src={logo} alt="logo" />
-          </Link>
-        </div>
-        <div className="menu float-center">
-          <ButtonMain
-            className="hvr-float-shadow"
-            onClick={() => history.push(routeConstants.ContactAgent.fullRoute)}
-            label="Contact Agent"
-          />
-          <ButtonMain
-            className="hvr-float-shadow"
-            onClick={() => history.push(routeConstants.LoanDashboard.fullRoute)}
-            label="Loans"
-          />
-          <ButtonMain
-            className="hvr-float-shadow"
-            onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
-            label="About Us"
-          />
-          <span className="static">818-837-6600</span>
-        </div>
-        <div className={popoutNav ? 'menu float-r fade-out-r' : 'menu float-r'}>
-          <ButtonMain
-            className="hvr-float-shadow"
-            onClick={() => history.push(routeConstants.Login.fullRoute)}
-            label="Login"
-          />
-        </div>
-        {popoutNav &&
-          <div className={popoutNav ? 'popout-menu float-r fade-in-from-none' : 'popout-menu float-r'}>
-            <div className="row pad-y">
-              <div className="col">
-                <ButtonMain
-                  className="hvr-float-shadow"
-                  label="REVERSE MORTGAGE"
-                  onClick={() => this.navigateAndClosePopup(routeConstants.ReverseMortgageForm.fullRoute)}
-                />
+      <div className="top-bar-nav flex-container no-border">
+        <div className="flex-col no-border">
+          <div className="flex-row">
+            <div className="flex-col no-border" style={{ width: '50%' }}>
+              <div className="title float-l">
+                <Link to={routeConstants.MiniAppDashboard.fullRoute}>
+                  <img src={logo} alt="logo" />
+                </Link>
               </div>
-              <div className="col">
+            </div>
+            <div className="flex-col" style={{ width: '50%' }}>
+              <div className="menu float-center">
                 <ButtonMain
-                  className="hvr-float-shadow"
-                  label="TRADITIONAL MORTGAGE"
-                  onClick={() => this.navigateAndClosePopup(routeConstants.TraditionalMortgageForm.fullRoute)}
+                  onClick={() => history.push(routeConstants.ContactAgent.fullRoute)}
+                  label="Loans"
                 />
-              </div>
-              <div className="col">
                 <ButtonMain
-                  className="hvr-float-shadow"
-                  label="PRIVATE COMPANY MORTGAGE"
-                  onClick={() => this.navigateAndClosePopup(routeConstants.PrivateCompanyMortgageForm.fullRoute)}
+                  onClick={() => history.push(routeConstants.LoanDashboard.fullRoute)}
+                  label="Tools"
                 />
-              </div>
-              <div className="col last close">
                 <ButtonMain
-                  className="hvr-float-shadow"
-                  icon={{ icon: 'ellipses', text: '' }}
-                  onClick={this.popoutNav}
+                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
+                  label="Contact Us"
+                />
+                <ButtonMain
+                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
+                  label="Contact Agent"
+                />
+                <ButtonMain
+                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
+                  label="About Us"
+                />
+                <ButtonMain
+                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
+                  label="Blog"
+                />
+                <ButtonMain
+                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
+                  label="Careers"
                 />
               </div>
             </div>
           </div>
-        }
+        </div>
       </div>
     );
   }

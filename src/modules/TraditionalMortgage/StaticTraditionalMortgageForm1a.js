@@ -25,7 +25,7 @@ const StaticTraditionalMortgage =
       <p><strong>Verify and complete the information on thie application.</strong> If you are appliting for this loan with others, each additional Borrower must provide information as directed by your lender.</p>
       <div className="form-break" />
       <p><h2>Section 1: Borrower Information.</h2> This section asks about yout personal information and your income from employment and other sources, such as retirement, that you want considered to qualify for this loan.</p>
-      <div className="form-section-tab">1a. Personal Information</div>
+      <div className="form-section-tab" style={{ width: '122px' }}>1a. Personal Information</div>
       <div className="flex-container">
         <div className="flex-col" style={{ width: '60%' }}>
           <div className="flex-row">
@@ -400,6 +400,7 @@ const StaticTraditionalMortgage =
           type="radio"
           value={values['personalInformationMilitary']}
           defaultValue=""
+          float
           label={<div><strong>Military Service</strong> - Did you (or your deceased spouse) ever serve, or are you currently serving, in the United States rmed Forces?</div>}
           values={[
             {value: 'no', label: 'No'},
@@ -507,7 +508,7 @@ const StaticTraditionalMortgage =
       <div className="flex-container">
         <div className="flex-col" style={{ width: "33%", margin: "0" }}>
           <ButtonMain
-            label="Save"
+            label="Continue"
             onClick={handleSubmit}
           />
         </div>

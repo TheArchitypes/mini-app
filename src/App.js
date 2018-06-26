@@ -21,7 +21,6 @@ function App({ history }) {
       </span>
       <TopNav history={history}/>
       <div className="app-content">
-        <Sidebar history={history} />
         <div className="main-content">
           <Switch>
             {DashboardRoutes}

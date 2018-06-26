@@ -22,7 +22,6 @@
       background-color: #000;
       border-radius: 6px 6px 0 0;
       padding: 3px;
-      width: 122px;
       text-align: left;
     }
     .form-break {
@@ -59,9 +58,6 @@
         border-right: none;
       }
     }
-    .no-border {
-      border: none;
-    }
     input[type=text] {
       width: 60%;
       border: none;
@@ -72,6 +68,9 @@
         background-color: transparent;
       }
     }
+  }
+  .no-border {
+    border: none!important;
   }
   .side-bar-nav {
     float: left;
@@ -101,25 +100,53 @@
     }
   }
   .main-content {
-    float: left;
-    width: 85%;
+    width: 100%;
     position: relative;
     z-index: 2;
   }
   .dashboard {
-    font-family: acherusgrotesque-regular;
+    font-family: Helvetica, Arial;
     position: absolute;
-    width: 100%;
-    & .dashboard-content {
-      position: relative;
+    width: 50%;
+    margin-left: 50%;
+    h1, h2 {
+      font-family: acherusgrotesque-regular;
+    }
+    .dashboard-content {
       width: 50%;
-      background-color: #fff;
-      margin: 0 2rem;
-      padding: 1.5rem 1rem;
+      margin-left: 25%;
+      background-color: #2D4047;
+      padding: 0 1.5rem 1rem;
       opacity: .90;
-      left: 25%;
-      & .row {
+      border-top: 6px solid #6D6660;
+      color: #fff;
+      .row {
         opacity: 1;
+      }
+      button {
+        background-color: #4C514A;
+        border-radius: 16px;
+        border: none;
+        padding: .45rem;
+        margin-right: 10px;
+        outline: none;
+        font-size: .80rem;
+        opacity: 1!important;
+      }
+      .dashboard-social-media {
+        float: right;
+        .social-media-button {
+          width: 30px;
+          border-radius: 0 0 16px 16px;
+          background-color: #4B5350;
+          margin-right: 12px;
+          height: 36px;
+          float: left;
+          opacity: 1!important;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
       }
     }
   }
@@ -157,7 +184,7 @@
 }
 
 .app-content {
-  padding-top: 110px;
+  padding-top: 156px;
 }
 
 .pad-y {
@@ -168,11 +195,7 @@
   float: left;
 }
 
-.float-center {
-  float: left;
-  position: relative;
-  left: 50%;
-  margin-left: -25%;
+.menu {
   button {
     margin-right: 2rem;
   }
@@ -186,9 +209,12 @@
   width: 100%;
   position: fixed;
   color: #fff;
-  background-color: #fff;
-  opacity: 0.9;
-  border-bottom: 1px solid #c4c4c4;
+  background-color: transparent;
+  .title {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
   .static {
     color: black;
     font-family: acherusgrotesque-regular;
@@ -221,7 +247,6 @@
     color: #fff;
   }
   .menu {
-    padding: 10px;
     .oi[data-glyph]:before {
       top: 0;
     }

@@ -1,11 +1,16 @@
 button {
-  background-color: $gradient-from;
+  background-color: transparent;
   border: none;
   padding: 1rem;
   cursor: pointer;
-  color: #000;
-  font-family: acherusgrotesque-regular;
-  font-size: 1.25rem;
+  color: #fff;
+  font-family: Helvetica, Arial;
+  font-size: 1.00rem;
+  border: none;
+  border-top: 4px solid transparent;
+  &:hover {
+    border-top: 4px solid #fff;
+  }
 }
 
 .form-radio-input {

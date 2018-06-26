@@ -8,9 +8,44 @@ export default function DashboardContainer({ history }) {
   return (
     <div className="dashboard">
       <div className="dashboard-content">
-        <h2>OUR MISSION</h2>
-        <p>Our mission is to have clients for life and establish successful relationships with our customers. We do this by providing a responsive, knowledgeable approach toward mortgage lending through the integration of people, technology, and business practices.</p>
-        <p>A cooperative spirit, adherence to our core values, and enthusiastic employees are the foundation of our success.</p>
+        <div className="flex-container no-border">
+          <div className="flex-col" style={{ width: '100%' }}>
+            <div className="flex-row" style={{ display: 'block' }}>
+              <div className="dashboard-social-media">
+                <div className="social-media-button email" />
+                <div className="social-media-button facebook" />
+                <div className="social-media-button twitter" />
+              </div>
+            </div>
+            <div className="flex-row">
+              <h2>RELIABLE LENDING</h2>
+            </div>
+            <div className="flex-row">
+              <p>
+                Do you have average to perfect credit? If so, we can get you the perfect loan for your needs. We will sit down and consult with you to dtermine the right product for your situation, and assist you from start to finish
+              </p>
+            </div>
+            <div className="flex-row">
+              <div className="dashboard-media-buttons">
+                <button>818.837.6600</button>
+                <button>info@myfirstchoicelender.com</button>
+              </div>
+            </div>
+            <div className="flex-row">
+              <h2>OUR MISSION</h2>
+            </div>
+            <div className="flex-row">
+              <p>
+                Our mission is to have clients for lie and establish successful relationships with out customers. We do this by providing a responsive, knowledgeable approach toward mortgage lending through the integration of people, technology, and business preactices.
+              </p>
+            </div>
+            <div className="flex-row">
+              <p>
+                A cooperative sprit, adherence to our core values, and enthusiastic employees are the foundation of our success.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

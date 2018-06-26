@@ -61,6 +61,7 @@ export class TraditionalMortgageContainer extends Component {
       <div className="tradition-mortgage-container">
         <AccordionContainer currentPage={currentPage} >
           <StaticTraditionalMortgageForm1a />
+          <StaticTraditionalMortgageForm1b />
           <Document file={p1}><Page pageNumber={1} /></Document>
           <Document file={p2}><Page pageNumber={1} /></Document>
           <Document file={p3}><Page pageNumber={1} /></Document>
