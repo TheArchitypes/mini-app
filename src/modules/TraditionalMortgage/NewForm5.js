@@ -37,7 +37,7 @@ const NewFormFive =
             <div className="flex-row">
               <div className="flex-col no-border" style={{ width: '50%' }}>
                 <div className="flex-row col-header">
-                  <h2>What si your race?</h2>
+                  <h2>What is your race?</h2>
                 </div>
                 <div className="flex-row">
                   <FormInput
