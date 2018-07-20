@@ -31,8 +31,8 @@ export default {
     fullRoute: `${parentRoute}/mission-statement`,
     reactRouterRoute: `${parentRoute}/mission-statement`,
   },
-  ContactAgent: {
-    name: 'ContactAgent',
+  ContactAgentContainer: {
+    name: 'ContactAgentContainer',
     fullRoute: `${parentRoute}/contact-agent`,
     reactRouterRoute: `${parentRoute}/contact-agent`,
   },

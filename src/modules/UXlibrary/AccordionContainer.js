@@ -58,10 +58,10 @@ export class AccordionContainer extends Component {
     const distanceFromCurrent = currentPage - (index + 1);
     const distanceFromCurrentAbs = Math.abs(currentPage - (index + 1));
     if (className.indexOf('after') !== -1) {
-      return { right: `${30 - distanceFromCurrentAbs}%`, 'zIndex': `${9999 - distanceFromCurrentAbs}` };
+      return { 'zIndex': `${9999 - distanceFromCurrentAbs}` };
     }
     if (className.indexOf('before') !== -1) {
-      return { left: `${30 - distanceFromCurrent}%`, 'zIndex': `${9999 - distanceFromCurrentAbs}` };
+      return { 'zIndex': `${9999 - distanceFromCurrentAbs}` };
     }
   }
 
@@ -125,11 +125,6 @@ AccordionContainer.propTypes = {
 
 AccordionContainer.defaultProps = {
   progress: [
-    {progress: 'in-progress'},
-    {progress: 'in-progress'},
-    {progress: 'in-progress'},
-    {progress: 'in-progress'},
-    {progress: 'incomplete'},
     {progress: 'in-progress'},
     {progress: 'in-progress'},
     {progress: 'in-progress'},

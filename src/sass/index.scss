@@ -16,17 +16,4 @@ form {
   max-height: 700px;
   max-width: 870px;
   overflow: auto;
-  .row {
-    width: 100%;
-    border-bottom: 1px solid #000;
-    border-top: 1px solid #000;
-    box-sizing: border-box;
-    float: left;
-  }
-  .col {
-    float: left;
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
-    box-sizing: border-box;
-  }
 }

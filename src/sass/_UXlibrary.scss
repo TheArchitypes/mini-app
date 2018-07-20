@@ -1,11 +1,11 @@
 button {
   background-color: transparent;
   border: none;
-  padding: 1rem;
+  padding: 26px 12px 12px;
   cursor: pointer;
   color: #fff;
-  font-family: Helvetica, Arial;
-  font-size: 1.00rem;
+  font-family: 'Source Sans Pro Semibold';
+  font-size: 16px;
   border: none;
   border-top: 4px solid transparent;
   &:hover {
@@ -50,6 +50,8 @@ button {
       position: absolute;
       background-color: #fff;
       display: block;
+      max-width: 50%;
+      border: 1px solid grey;
       .section-tab {
         float: left;
         background-color: #fff;
@@ -61,7 +63,6 @@ button {
       }
       &.active {
         left: 50%;
-        margin-left: -25%;
         z-index: 9999;
         min-width: 50%;
         border: 1px solid #000;
@@ -71,22 +72,11 @@ button {
       }
       &.before {
         left: 25%;
-        margin-left: -12%;
-        min-width: 50%;
-        border: 1px solid grey;
-        -ms-transform: scale(0.80, 0.80); /* IE 9 */
-        -webkit-transform: scale(0.80, 0.80); /* Safari */
-        transform: scale(0.80, 0.80);
+        max-width: 50%;
       }
       &.after {
-        right: 25%;
-        margin-right: -12%;
+        left: 75%;
         min-width: 50%;
-        border: 1px solid grey;
-        top: 20px;
-        -ms-transform: scale(0.80, 0.80); /* IE 9 */
-        -webkit-transform: scale(0.80, 0.80); /* Safari */
-        transform: scale(0.80, 0.80);
       }
       .accordion-division {
         overflow: auto;

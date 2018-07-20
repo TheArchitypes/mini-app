@@ -5,6 +5,7 @@ import DashboardRoutes from 'modules/Dashboard/Routes';
 import MissionStatementRoutes from 'modules/MissionStatement/Routes';
 import TraditionalMortgageRoutes from 'modules/TraditionalMortgage/Routes';
 import LoansRoutes from 'modules/Loans/Routes';
+import ContactAgentRoutes from 'modules/ContactAgent/Routes';
 import routeConstants from 'config/routeConstants';
 import TopNav from 'modules/TopNav';
 import Sidebar from 'modules/Sidebar';
@@ -25,6 +26,7 @@ function App({ history }) {
           <Switch>
             {DashboardRoutes}
             {TraditionalMortgageRoutes}
+            {ContactAgentRoutes}
             {LoansRoutes}
             {MissionStatementRoutes}
           </Switch>

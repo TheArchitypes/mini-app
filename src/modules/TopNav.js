@@ -8,13 +8,29 @@ import routeConstants from 'config/routeConstants';
 import { ButtonMain } from 'modules/UXlibrary/ButtonMain';
 import logo from 'assets/images/first-choice.png';
 
+const topNavArray = [
+  {label: 'Loans', value: 'loans', url: '', children: [
+    {label: 'Conventional Financing', url: routeConstants.TraditionalMortgageForm.fullRoute},
+    {label: 'FHA Loans', url: ''},
+    {label: 'Jumbo Loans', url: ''},
+    {label: 'VA Loans', url: ''},
+    {label: 'Private Funding', url: ''},
+  ]},
+  {label: 'Tools', value: 'tools', url: '', children: []},
+  {label: 'Contact Us', value: 'contactUs', url: '', children: []},
+  {label: 'Contact Agent', value: 'contactAgent', url: routeConstants.ContactAgentContainer.fullRoute, children: []},
+  {label: 'About Us', value: 'aboutUs', url: routeConstants.AboutUs.fullRoute, children: []},
+  {label: 'Blog', value: 'blog', url: '', children: []},
+  {label: 'Careers', value: 'careers', url: '', children: []},
+];
+
 export class TopNav extends Component {
   constructor(props) {
     super(props);
     autobind(this);
     this.state = {
-      popoutNav: false,
-    }
+      shownDropdown: '',
+    };
   }
 
   popoutNav() {
@@ -22,6 +38,19 @@ export class TopNav extends Component {
     this.setState({
       popoutNav: !popoutNav,
     });
+  }
+
+  openDropdown(value) {
+    const { shownDropdown } = this.state;
+    console.log('open dropdown');
+    this.setState({
+      shownDropdown: shownDropdown === value ? '' : value,
+    });
+  }
+
+  subNavigation(route) {
+    const { history } = this.props;
+    history.push(route);
   }
 
   navigateAndClosePopup(route) {
@@ -32,7 +61,7 @@ export class TopNav extends Component {
 
   render() {
     const { history } = this.props;
-    const { popoutNav } = this.state;
+    const { popoutNav, shownDropdown } = this.state;
     return (
       <div className="top-bar-nav flex-container no-border">
         <div className="flex-col no-border">
@@ -45,35 +74,28 @@ export class TopNav extends Component {
               </div>
             </div>
             <div className="flex-col" style={{ width: '50%' }}>
-              <div className="menu float-center">
-                <ButtonMain
-                  onClick={() => history.push(routeConstants.ContactAgent.fullRoute)}
-                  label="Loans"
-                />
-                <ButtonMain
-                  onClick={() => history.push(routeConstants.LoanDashboard.fullRoute)}
-                  label="Tools"
-                />
-                <ButtonMain
-                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
-                  label="Contact Us"
-                />
-                <ButtonMain
-                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
-                  label="Contact Agent"
-                />
-                <ButtonMain
-                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
-                  label="About Us"
-                />
-                <ButtonMain
-                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
-                  label="Blog"
-                />
-                <ButtonMain
-                  onClick={() => history.push(routeConstants.AboutUs.fullRoute)}
-                  label="Careers"
-                />
+              <div className="flex-row">
+                <div className="menu float-center">
+                  {topNavArray.map((navItem, navItemIndex) => (
+                    <div
+                      key={navItemIndex}
+                      className="flex-col no-border menu-item"
+                      onMouseEnter={() => !_.isEmpty(navItem.children) ? this.openDropdown(navItem.value) : {}}>
+                      <ButtonMain
+                        className={!_.isEmpty(navItem.children) ? 'has-sub-nav' : ''}
+                        onClick={() => !_.isEmpty(navItem.children) ? this.openDropdown(navItem.value) : this.subNavigation(navItem.url)}
+                        label={navItem.label}
+                      />
+                      {!_.isEmpty(navItem.children) && shownDropdown === navItem.value &&
+                        <ul className="sub-nav-container">
+                          {navItem.children.map((subNavItem, subNavItemIndex) => (
+                            <li key={subNavItemIndex} onClick={() => this.subNavigation(subNavItem.url)}>{subNavItem.label}</li>
+                          ))}
+                        </ul>
+                      }
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

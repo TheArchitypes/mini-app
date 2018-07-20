@@ -7,18 +7,13 @@ import autobind from 'class-autobind';
 import defaultFormFields from 'config/formFields';
 import { AccordionContainer } from 'modules/UXlibrary/AccordionContainer';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
-import { StaticTraditionalMortgageForm1a } from './StaticTraditionalMortgageForm1a';
-import { StaticTraditionalMortgageForm1b } from './StaticTraditionalMortgageForm1b';
+import { NewForm1 } from './NewForm1';
+import { NewForm2 } from './NewForm2';
+import { NewForm3 } from './NewForm3';
+import { NewForm4 } from './NewForm4';
+import { NewForm5 } from './NewForm5';
 import { CreditDisclosureForm } from './CreditDisclosureForm';
 import sample from '../../assets/images/sample.pdf';
-import p1 from '../../assets/images/traditional_p1.pdf';
-import p2 from '../../assets/images/traditional_p2.pdf';
-import p3 from '../../assets/images/traditional_p3.pdf';
-import p4 from '../../assets/images/traditional_p4.pdf';
-import p5 from '../../assets/images/traditional_p5.pdf';
-import p6 from '../../assets/images/traditional_p6.pdf';
-import p7 from '../../assets/images/traditional_p7.pdf';
-import p8 from '../../assets/images/traditional_p8.pdf';
 
 export class TraditionalMortgageContainer extends Component {
   constructor(props) {
@@ -60,16 +55,11 @@ export class TraditionalMortgageContainer extends Component {
     return (
       <div className="tradition-mortgage-container">
         <AccordionContainer currentPage={currentPage} >
-          <StaticTraditionalMortgageForm1a />
-          <StaticTraditionalMortgageForm1b />
-          <Document file={p1}><Page pageNumber={1} /></Document>
-          <Document file={p2}><Page pageNumber={1} /></Document>
-          <Document file={p3}><Page pageNumber={1} /></Document>
-          <Document file={p4}><Page pageNumber={1} /></Document>
-          <Document file={p5}><Page pageNumber={1} /></Document>
-          <Document file={p6}><Page pageNumber={1} /></Document>
-          <Document file={p7}><Page pageNumber={1} /></Document>
-          <Document file={p8}><Page pageNumber={1} /></Document>
+          <NewForm1 />
+          <NewForm2 />
+          <NewForm3 />
+          <NewForm4 />
+          <NewForm5 />
           <div className="accordion-division">
             <CreditDisclosureForm
               history={history}
