@@ -5,7 +5,7 @@ import Yup from 'yup';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import routeConstants from 'config/routeConstants';
-import { ButtonMain } from 'modules/UXlibrary/ButtonMain';
+import { ButtonMain, ButtonForm } from 'modules/UXlibrary/ButtonMain';
 import { FormInput } from 'modules/UXlibrary/FormInput'
 import { reducePropsToValues, reducePropsToValidation, reduceValuesToPayload } from 'selectors/FormSelectors';
 
@@ -18,6 +18,8 @@ const NewFormThree =
     handleSubmit,
     history,
     formFields,
+    incomes,
+    addIncome,
   }) => {
   return(
     <form onSubmit={handleSubmit}>
@@ -30,10 +32,22 @@ const NewFormThree =
             <div className="flex-row">
               such as dividends, alimony, social security or retirement
             </div>
+            {incomes.length > 0 && incomes.map((income, index) => (
+              <div className="flex-row">
+                <div className="flex-col no-border" style={{ width: '100%' }}>
+                  <div className="flex-row">
+                    <ButtonForm
+                      label="Remove Income"
+                      onClick={() => addAsset('incomes', index, true)}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
             <div className="flex-row">
-              <ButtonMain
+              <ButtonForm
                 label="Add Other Income"
-                onClick={() => addIncome()}
+                onClick={() => addIncome('incomes', null, false)}
               />
             </div>
           </div>
@@ -43,7 +57,7 @@ const NewFormThree =
   )};
 
   {
-    const { shape, func } = PropTypes;
+    const { shape, func, arrayOf } = PropTypes;
 
     NewFormThree.propTypes = {
       values: shape({}).isRequired,
@@ -52,7 +66,9 @@ const NewFormThree =
       setFieldValue: func.isRequired,
       handleSubmit: func.isRequired,
       history: shape({}).isRequired,
-      formFields: shape({}).isRequired
+      formFields: shape({}).isRequired,
+      incomes: arrayOf(shape({})),
+      addIncome: func.isRequired,
     }
   }
 

@@ -195,7 +195,7 @@ const NewFormTwo =
                 </div>
               </div>
             </div>
-            <div clasName="flex-row">
+            <div className="flex-row">
               <ButtonMain
                 label="Add a Current Employer"
                 onClick={() => addEmployer()}

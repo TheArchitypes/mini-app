@@ -33,10 +33,10 @@ const { string, arrayOf, shape, func, bool } = PropTypes;
 FormInput.propTypes = {
   name: string.isRequired,
   type: string.isRequired,
-  value: string.isRequired,
+  value: string,
   defaultValue: string.isRequired,
   label: string.isRequired,
-  values: arrayOf(shape({})).isRequired,
+  values: arrayOf(shape({})),
   onChange: func.isRequired,
   disabled: bool,
 };

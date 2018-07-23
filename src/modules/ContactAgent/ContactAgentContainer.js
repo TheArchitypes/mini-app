@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import routeConstants from 'config/routeConstants';
 import { ButtonMain } from 'modules/UXlibrary/ButtonMain';
 import logo from '../../logo.svg';
-// import sammyGomez from './assets/images/sammy-gomez.png';
-// import chrisAlvorado from './assets/images/chris-alvorado.png';
-// import carlosPortillo from './assets/images/carlos-portillo.png';
+// import sammyGomez from './assets/images/sammyGomez.png';
+// import chrisAlvorado from './assets/images/chrisAlvorado.png';
+// import carlosPortillo from './assets/images/carlosPortillo.png';
 
 const agentArray = [
   {

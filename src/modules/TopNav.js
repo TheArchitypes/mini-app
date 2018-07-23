@@ -80,14 +80,18 @@ export class TopNav extends Component {
                     <div
                       key={navItemIndex}
                       className="flex-col no-border menu-item"
-                      onMouseEnter={() => !_.isEmpty(navItem.children) ? this.openDropdown(navItem.value) : {}}>
+                      onMouseEnter={_.isEmpty(navItem.children) ? () => this.openDropdown('') : () => {}}
+                    >
                       <ButtonMain
                         className={!_.isEmpty(navItem.children) ? 'has-sub-nav' : ''}
-                        onClick={() => !_.isEmpty(navItem.children) ? this.openDropdown(navItem.value) : this.subNavigation(navItem.url)}
+                        onClick={!_.isEmpty(navItem.children) ? () => this.openDropdown(navItem.value) : () => this.subNavigation(navItem.url)}
                         label={navItem.label}
                       />
                       {!_.isEmpty(navItem.children) && shownDropdown === navItem.value &&
-                        <ul className="sub-nav-container">
+                        <ul
+                          className="sub-nav-container"
+                          onMouseLeave={() => this.openDropdown('')}
+                        >
                           {navItem.children.map((subNavItem, subNavItemIndex) => (
                             <li key={subNavItemIndex} onClick={() => this.subNavigation(subNavItem.url)}>{subNavItem.label}</li>
                           ))}

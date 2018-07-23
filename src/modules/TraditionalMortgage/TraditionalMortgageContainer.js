@@ -21,6 +21,8 @@ export class TraditionalMortgageContainer extends Component {
     autobind(this);
     this.state = {
       currentPage: 1,
+      incomes: [],
+      assets: [],
     }
   }
 
@@ -28,9 +30,17 @@ export class TraditionalMortgageContainer extends Component {
     console.log('payload: ', payload);
   }
 
+  handleAddRemoveFields(type, index, remove) {
+    const newType = _.cloneDeep(this.state[type]);
+    remove ? newType.splice(index, 1) : newType.push({});
+    this.setState({
+      type: newType,
+    });
+  }
+
   render() {
     const { status, currentValues, history } = this.props;
-    const { currentPage } = this.state;
+    const { currentPage, incomes, assets } = this.state;
     // if (!status) {
     //   return(
     //     <h2>Form Loading...</h2>
@@ -55,11 +65,11 @@ export class TraditionalMortgageContainer extends Component {
     return (
       <div className="tradition-mortgage-container">
         <AccordionContainer currentPage={currentPage} >
-          <NewForm1 />
-          <NewForm2 />
-          <NewForm3 />
-          <NewForm4 />
-          <NewForm5 />
+          <NewForm1 onSuccess={this.handleSuccess} history={history} formFields={{}}/>
+          <NewForm2 onSuccess={this.handleSuccess} history={history} formFields={{}}/>
+          <NewForm3 onSuccess={this.handleSuccess} history={history} formFields={{}} addIncome={this.handleAddRemoveFields} incomes={incomes}/>
+          <NewForm4 onSuccess={this.handleSuccess} history={history} formFields={{}} addAsset={this.handleAddRemoveFields} assets={assets}/>
+          <NewForm5 onSuccess={this.handleSuccess} history={history} formFields={{}} />
           <div className="accordion-division">
             <CreditDisclosureForm
               history={history}

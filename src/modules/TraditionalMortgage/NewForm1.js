@@ -1,25 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { withFormik } from 'formik';
+import { Formik } from '../../lib/formikAdaptor';
 import Yup from 'yup';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import routeConstants from 'config/routeConstants';
-import { ButtonMain } from 'modules/UXlibrary/ButtonMain';
+import { ButtonMain, ButtonForm } from 'modules/UXlibrary/ButtonMain';
 import { FormInput } from 'modules/UXlibrary/FormInput'
-import { reducePropsToValues, reducePropsToValidation, reduceValuesToPayload } from 'selectors/FormSelectors';
 
-const NewForm =
+const NewFormOne =
   ({
     values,
     touched,
     errors,
-    setFieldValue: handleChange,
+    handleChangeValue: handleChange,
     handleSubmit,
     history,
     formFields,
-  }) => {
-  return(
+  }) => (
     <form onSubmit={handleSubmit}>
       <ul className="form-style-1">
         <div className="flex-container">
@@ -70,7 +67,7 @@ const NewForm =
                   />
                 </div>
               </div>
-              <div classname="flex-col no-border" style={{ width: '50%' }}>
+              <div className="flex-col no-border" style={{ width: '50%' }}>
                 <div className="flex-row">
                   <FormInput
                     name="email"
@@ -135,16 +132,16 @@ const NewForm =
             </div>
             <div className="flex-row">
               <FormInput
-                name="coborrower"
+                name="coBorrower"
                 type="radio"
-                value={values['coborrower']}
-                defaultValue=""
+                value={values['coBorrower']}
+                defaultValue="no"
                 label=""
                 values={[
                   {value: 'yes', label: 'Yes'},
                   {value: 'no', label: 'No'},
                 ]}
-                onChange={event => handleChange('coborrower', _.get(event, 'target.value', event))}
+                onChange={event => handleChange('coBorrower', _.get(event, 'target.value', event))}
               />
             </div>
             <div className="flex-row">
@@ -293,13 +290,13 @@ const NewForm =
             </div>
             <div className="flex-row">
               <div className="flex-col no-border" style={{ width: '50%' }}>
-                <ButtonMain
+                <ButtonForm
                   label="I need to get pre-approved"
                   onClick={() => handleApproval(false)}
                 />
               </div>
               <div className="flex-col no-border" style={{ width: '50%' }}>
-                <ButtonMain
+                <ButtonForm
                   label="My offer has been accepted"
                   onClick={() => handleApproval(true)}
                 />
@@ -560,31 +557,57 @@ const NewForm =
         </div>
       </ul>
     </form>
-  )};
+  );
 
   {
     const { shape, func } = PropTypes;
 
-    NewForm.propTypes = {
-      values: shape({}).isRequired,
+    NewFormOne.propTypes = {
+      values: shape({}),
       touched: shape({}).isRequired,
       errors: shape({}).isRequired,
-      setFieldValue: func.isRequired,
+      handleChangeValue: func.isRequired,
       handleSubmit: func.isRequired,
       history: shape({}).isRequired,
       formFields: shape({}).isRequired
     }
   }
 
-  export const NewForm1 = withFormik({
-    validationSchema: ({ formFields }) => reducePropsToValidation(formFields),
-    mapPropsToValues: ({ formFields }) => reducePropsToValues(formFields),
+  const validationSchema = (formFields) => {
+    console.log('validation schema');
+    return {
+      firstName: Yup.string(),
+      middleName: Yup.string(),
+      lastName: Yup.string(),
+      suffix: Yup.string(),
+      email: Yup.string(),
+      preferredPhone: Yup.string(),
+      maritalStatus: Yup.string(),
+      dependants: Yup.string(),
+      ages: Yup.string(),
+    }
+  }
+
+  export const NewForm1 = Formik({
+    mapPropsToValues: props => {
+        return {
+          firstName: _.get(props.formFields, 'firstName', ''),
+          middleName: _.get(props.formFields, 'middleName', ''),
+          lastName: _.get(props.formFields, 'lastName', ''),
+          suffix: _.get(props.formFields, 'suffix', ''),
+          email: _.get(props.formFields, 'email', ''),
+          preferredPhone: _.get(props.formFields, 'preferredPhone', ''),
+          maritalStatus: _.get(props.formFields, 'maritalStatus', ''),
+          dependants: _.get(props.formFields, 'dependants', ''),
+          ages: _.get(props.formFields, 'ages', ''),
+        };
+    },
+    validationSchema: ({ formFields }) => validationSchema(formFields),
     handleSubmit: (payload, { props, setSubmitting }) => {
       setSubmitting(false);
-      const newPaylod = reduceValuesToPayload(props.formFields, payload);
-      props.onSuccess(newPayload);
+      props.onSuccess(payload);
     },
-  })(NewForm);
+  })(NewFormOne);
 
   export default {
     NewForm1,
