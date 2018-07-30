@@ -169,9 +169,9 @@ const NewFormTwo =
                   </div>
                   <div className="flex-col no-border" style={{ width: '50%' }}>
                     <FormInput
-                      name="cmpanyState"
+                      name="companyState"
                       type="selectOption"
-                      value={values['cmpanyState']}
+                      value={values['companyState']}
                       defaultValue="State"
                       label=""
                       values={[
@@ -179,7 +179,7 @@ const NewFormTwo =
                         {value: 'ca', label: 'CA'},
                         {value: 'tx', label: 'TX'},
                       ]}
-                      onChange={event => handleChange('cmpanyState', _.get(event, 'target.value', event))}
+                      onChange={event => handleChange('companyState', _.get(event, 'target.value', event))}
                     />
                   </div>
                 </div>
@@ -221,12 +221,43 @@ const NewFormTwo =
     }
   }
 
+  const validationSchema = () => ({
+      employmentType: Yup.string(),
+      position: Yup.string(),
+      typeOfBusiness: Yup.string(),
+      timePeriodFrom: Yup.string(),
+      timePeriodTo: Yup.string(),
+      yearsInSameField: Yup.string(),
+      totalIncome: Yup.string(),
+      totalIncomeTime: Yup.string(),
+      companyName: Yup.string(),
+      businessPhone: Yup.string(),
+      companyStreet: Yup.string(),
+      companyZip: Yup.string(),
+      companyState: Yup.string(),
+      companyCity: Yup.string(),
+  });
+
   export const NewForm2 = withFormik({
-    validationSchema: ({ formFields }) => reducePropsToValidation(formFields),
-    mapPropsToValues: ({ formFields }) => reducePropsToValues(formFields),
+    mapPropsToValues: props => ({
+      employmentType: _.get(props.formFields, 'employmentType', ''),
+      position: _.get(props.formFields, 'position', ''),
+      typeOfBusiness: _.get(props.formFields, 'typeOfBusiness', ''),
+      timePeriodFrom: _.get(props.formFields, 'timePeriodFrom', ''),
+      timePeriodTo: _.get(props.formFields, 'timePeriodTo', ''),
+      yearsInSameField: _.get(props.formFields, 'yearsInSameField', ''),
+      totalIncome: _.get(props.formFields, 'totalIncome', ''),
+      totalIncomeTime: _.get(props.formFields, 'totalIncomeTime', ''),
+      companyName: _.get(props.formFields, 'companyName', ''),
+      businessPhone: _.get(props.formFields, 'businessPhone', ''),
+      companyStreet: _.get(props.formFields, 'companyStreet', ''),
+      companyZip: _.get(props.formFields, 'companyZip', ''),
+      companyState: _.get(props.formFields, 'companyState', ''),
+      companyCity: _.get(props.formFields, 'companyCity', ''),
+    }),
+    validationSchema: () => validationSchema(),
     handleSubmit: (payload, { props, setSubmitting }) => {
       setSubmitting(false);
-      const newPaylod = reduceValuesToPayload(props.formFields, payload);
       props.onSuccess(newPayload);
     },
   })(NewFormTwo);
